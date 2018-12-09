@@ -1,7 +1,11 @@
 package modelo.de.descuentos;
 
+import java.text.DecimalFormat;
+
 public class ModeloDescuentos extends javax.swing.JFrame {
 
+    DecimalFormat df = new DecimalFormat("#.0000");
+    
     public ModeloDescuentos() {
         initComponents();
     }
@@ -32,6 +36,8 @@ public class ModeloDescuentos extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
 
         jLabel7.setText("jLabel7");
 
@@ -74,27 +80,52 @@ public class ModeloDescuentos extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jButton1.setText("Q*");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jLabel8.setText("0");
 
         jButton2.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jButton2.setText("Qm");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jLabel9.setText("0");
 
         jButton3.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jButton3.setText("CTU");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jLabel10.setText("0");
 
         jButton4.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jButton4.setText("Zona");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        jLabel11.setText("0");
+        jLabel11.setText("-");
+
+        jLabel12.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        jLabel12.setText("h");
+
+        jTextField6.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,9 +145,11 @@ public class ModeloDescuentos extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(133, 133, 133)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,7 +206,11 @@ public class ModeloDescuentos extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -207,6 +244,74 @@ public class ModeloDescuentos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        //Qm
+        s = Double.valueOf(jTextField4.getText());
+        d = Double.valueOf(jTextField3.getText());
+        h = Double.valueOf(jTextField6.getText());
+        
+        qm = Math.sqrt((2*(s*d))/(h));
+        //Set text
+        jLabel9.setText(String.valueOf(df.format(qm)));
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        //CTU
+        q = Double.valueOf(jTextField5.getText());
+        c1 = Double.valueOf(jTextField1.getText());
+        c2 = Double.valueOf(jTextField2.getText());
+        s = Double.valueOf(jTextField4.getText());
+        d = Double.valueOf(jTextField3.getText());
+        h = Double.valueOf(jTextField6.getText());        
+        qm = Math.sqrt((2*(s*d))/(h));
+        
+        ctu = ((c1*d)* ((s*d)/qm)) + ((qm/2)*h);        
+        //Set text
+        jLabel10.setText(String.valueOf(df.format(ctu)));
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        //qq
+        q = Double.valueOf(jTextField5.getText());
+        c1 = Double.valueOf(jTextField1.getText());
+        c2 = Double.valueOf(jTextField2.getText());
+        s = Double.valueOf(jTextField4.getText());
+        d = Double.valueOf(jTextField3.getText());
+        h = Double.valueOf(jTextField6.getText());        
+        qm = Math.sqrt((2*(s*d))/(h));
+        qq = ((c2*d)* ((s*d)/qm)) + ((qm/2)*h);
+        //Set text
+        jLabel8.setText(String.valueOf(df.format(qq)));
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        //Zona
+        q = Double.valueOf(jTextField5.getText());
+        c1 = Double.valueOf(jTextField1.getText());
+        c2 = Double.valueOf(jTextField2.getText());
+        s = Double.valueOf(jTextField4.getText());
+        d = Double.valueOf(jTextField3.getText());
+        h = Double.valueOf(jTextField6.getText());        
+        qm = Math.sqrt((2*(s*d))/(h));
+        qq = ((c2*d)* ((s*d)/qm)) + ((qm/2)*h);
+        
+        double q1=0;
+        
+        if(q<qm){
+            zona = "Zona I";
+        }else if((qm<q) && (qm<q1)){
+            zona = "Zona II";
+        }else if(q>q1){
+            zona = "Zona III";
+        }
+        //Set text
+        jLabel11.setText(zona);
+    }//GEN-LAST:event_jButton4MouseClicked
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -246,6 +351,7 @@ public class ModeloDescuentos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -262,5 +368,16 @@ public class ModeloDescuentos extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
+    public double c1;
+    public double c2;
+    public double d;
+    public double s;
+    public double q;
+    public double h;
+    public double qm;
+    public double ctu;
+    public double qq;
+    public String zona;
 }
