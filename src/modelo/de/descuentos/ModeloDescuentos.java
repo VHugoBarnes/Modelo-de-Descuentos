@@ -118,6 +118,11 @@ public class ModeloDescuentos extends javax.swing.JFrame {
                 jButton4MouseClicked(evt);
             }
         });
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jLabel11.setText("-");
@@ -300,8 +305,10 @@ public class ModeloDescuentos extends javax.swing.JFrame {
         qm = Math.sqrt((2*(s*d))/(h));
         qq = ((c2*d)* ((s*d)/qm)) + ((qm/2)*h);
         
-        double q1=0;
-        
+        ctu= ((c1*d)* ((s*d)/qm)) + ((qm/2)*h);
+        //double q1 = ;
+        //ctu = ((c1*d)* ((s*d)/q1)) + ((q1/2)*h);
+        double ctu1= ctu;
         if(q<qm){
             zona = "Zona I";
         }else if((qm<q) && (qm<q1)){
@@ -312,6 +319,10 @@ public class ModeloDescuentos extends javax.swing.JFrame {
         //Set text
         jLabel11.setText(zona);
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
